@@ -6,6 +6,7 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
 
+
         for i in range(len(matrix)): #transpose of matrix
             for j in range(i, len(matrix[0])):
                 if i != j:
