@@ -2,7 +2,7 @@ Davis has a number of staircases in his house and he likes to climb each stairca
 
 Given the respective heights for each of the  staircases in his house, find and print the number of ways he can climb each staircase, module  on a new line.
 
-For example, there is s staircase in the house that is n=5 steps high. Davis can step on the following sequences of steps:
+For example, there is s=1 staircases in the house that is n=5 steps high. Davis can step on the following sequences of steps:
 
 ```
 1 1 1 1 1
