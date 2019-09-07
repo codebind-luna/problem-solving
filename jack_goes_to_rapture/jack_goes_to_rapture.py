@@ -1,0 +1,67 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import heapq
+
+from collections import defaultdict
+
+#
+# Complete the 'getCost' function below.
+#
+# The function accepts WEIGHTED_INTEGER_GRAPH g as parameter.
+#
+
+#
+# For the weighted graph, <name>:
+#
+# 1. The number of nodes is <name>_nodes.
+# 2. The number of edges is <name>_edges.
+# 3. An edge exists between <name>_from[i] and <name>_to[i]. The weight of the edge is <name>_weight[i].
+#
+#
+
+def getCost(g_nodes, g_from, g_to, g_weight):
+    # Print your answer within the function and return nothing
+    adj=defaultdict(list)
+
+    for i in range(g_edges):
+        adj[g_from[i]].append((g_weight[i],g_to[i]))
+        adj[g_to[i]].append((g_weight[i],g_from[i]))
+
+    queue = []
+    visited = set()
+    queue.append((0,1))
+    rekt=True
+
+    while queue:
+        cur = heapq.heappop(queue)
+        if cur[1] in visited:
+            continue
+        visited.add(cur[1])
+        if cur[1]==g_nodes:
+            print(cur[0])
+            rekt=False
+            break
+        for a in adj[cur[1]]:
+            if a[1] not in visited:
+                out = (max(a[0],cur[0]),a[1])
+                heapq.heappush(queue,out)
+            
+    if rekt:
+        print("NO PATH EXISTS")
+
+if __name__ == '__main__':
+    g_nodes, g_edges = map(int, input().rstrip().split())
+
+    g_from = [0] * g_edges
+    g_to = [0] * g_edges
+    g_weight = [0] * g_edges
+
+    for i in range(g_edges):
+        g_from[i], g_to[i], g_weight[i] = map(int, input().rstrip().split())
+
+    getCost(g_nodes, g_from, g_to, g_weight)
