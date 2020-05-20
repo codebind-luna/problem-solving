@@ -89,9 +89,6 @@ class Conversion:
 			print root.data, 
 			self.inorderTraversal(root.right) 
 
-# Driver Program to test above function 
-
-# Object of conversion class 
 conv = Conversion() 
 conv.push(36) 
 conv.push(30) 
@@ -104,5 +101,3 @@ conv.convertList2Binary()
 
 print "Inorder Traversal of the contructed Binary Tree is:"
 conv.inorderTraversal(conv.root) 
-
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
