@@ -6,7 +6,7 @@ class TreeNode:
 
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        def sumCalculator(root: TreeNode, is_left_child: bool, is_not_root_node: bool):
+        def sumCalculator(root: TreeNode, is_left_child: bool, is_not_root_node: bool = True):
             if root == None:
                 return 0
             
@@ -18,7 +18,7 @@ class Solution:
                     return 0
             
             total = 0
-            total += sumCalculator(root.right, False, True) + sumCalculator(root.left, True, True)
+            total += sumCalculator(root.right, False) + sumCalculator(root.left, True)
             
             return total
                 
